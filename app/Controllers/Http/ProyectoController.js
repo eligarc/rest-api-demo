@@ -21,7 +21,7 @@ class ProyectoController {
         return proyecto;
     }
 
-    async destroy({ auth, response, params }) {
+    async destroy({ auth, params }) {
         const user = await auth.getUser();
 
         const { id } = params;

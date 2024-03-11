@@ -21,10 +21,16 @@ Route.get('/', () => {
 });
 
 Route.group(() => {
+  // Rutas de los proyectos
   Route.get('proyectos', 'ProyectoController.index');
   Route.post('proyectos', 'ProyectoController.create');
-  Route.delete('proyectos/:id', 'ProyectoController.destroy');
   Route.patch('proyectos/:id', 'ProyectoController.update');
+  Route.delete('proyectos/:id', 'ProyectoController.destroy');
+  // Rutas de las tareas
+  Route.get('proyectos/:id/tareas', 'TareaController.index');
+  Route.post('proyectos/:id/tareas', 'TareaController.create');
+  Route.patch('tareas/:id', 'TareaController.update');
+  Route.delete('tareas/:id', 'TareaController.destroy');
 
 }).prefix('api/v1').middleware('auth');
 
